@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-blue {
+    background: #6c91ff;
+}
+
+.blue {
+    color: #6c91ff;
+}
+
+.iconbutton:hover::before {
+    background: white;
+    border-radius: 5px;
+    content: var(--name);
+    font-size: 50%;
+    position: absolute;
+    padding: 0 .5rem;
+
+    top: 0;
+    left: 105%;
+    width: max-content;
+    white-space: nowrap;
+
+}
