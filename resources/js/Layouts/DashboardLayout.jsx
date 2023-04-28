@@ -30,7 +30,7 @@ let navigation_icons = [
     
 
 
-const DashboardLayout = ({children}) => {
+const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
   return (
     <div className='h-screen overflow-hidden'>
         <nav className='flex justify-between items-center p-2 sm:px-4 h-[50px] sm:h-[60px] relative z-20'>
@@ -53,9 +53,9 @@ const DashboardLayout = ({children}) => {
             <div className="navigations flex flex-col items-center pt-5 w-[50px] sm:w-[60px] h-full text-gray-600 relative z-10">
                 
                 {
-                    navigation_icons.map(icon => 
+                    nav_icons.map(icon => 
                          (
-                            <IconButton classname='text-lg sm:text-2xl my-2' name={icon.name}>
+                            <IconButton classname='text-lg sm:text-2xl my-2' name={icon.name} key={icon.name}>
                                 <icon.icon/>
                             </IconButton>
                         )
@@ -64,7 +64,7 @@ const DashboardLayout = ({children}) => {
                 
             </div>
 
-            <div className="focus-area h-screen pb-60px w-full bg-gray-100 relative z-0" >
+            <div className="focus-area h-screen pb-[150px] w-full bg-light-blue relative z-0 overflow-y-scroll" >
                 {children}
             </div>
         </div>

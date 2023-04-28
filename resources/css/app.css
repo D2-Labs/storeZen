@@ -4,11 +4,18 @@
 
 
 .bg-blue {
-    background: #6c91ff;
+    background: #6f6cff;
 }
 
 .blue {
-    color: #6c91ff;
+    color: #6f6cff;
+}
+
+.bg-light-green {
+    background: lightgreen;
+}
+.bg-light-blue{
+    background: #f6f6ff;
 }
 
 .iconbutton:hover::before {
@@ -25,3 +32,15 @@
     white-space: nowrap;
 
 }
+
+.custom-grid-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    transform: scale(.95);
+}
+
+.react-datepicker-wrapper {
+    width: max-content !important;
+}
+

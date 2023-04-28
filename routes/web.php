@@ -24,6 +24,10 @@ Route::get('/sales', function () {
     return Inertia::render('Sales/Dashboard');
 });
 
+Route::get('/sales/salesmade', function () {
+    return Inertia::render('Sales/SalesMade');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
