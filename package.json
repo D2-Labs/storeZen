@@ -19,10 +19,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-<<<<<<< HEAD
-=======
         "react-datepicker": "^4.11.0",
->>>>>>> origin/shalom
         "react-icons": "^4.8.0"
     }
 }
