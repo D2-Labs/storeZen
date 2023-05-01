@@ -32,7 +32,7 @@ let navigation_icons = [
 
 const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
   return (
-    <div className='h-screen overflow-hidden'>
+    <div className='h-screen overflow-hidden relative'>
         <nav className='flex justify-between items-center p-2 sm:px-4 h-[50px] sm:h-[60px] relative z-20'>
             <div className="logo font-bold text-lg sm:text-2xl">Store<span className='blue'>Zen</span></div>
             <div className="nav-left flex items-center">

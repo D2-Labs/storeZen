@@ -1,11 +1,23 @@
 import React from 'react'
-import DashboardLayout from '../../Layouts/DashboardLayout'
-import DateTimeSearch from '../../Components/DateTimeSearch'
+import {useState} from 'react'
+import DashboardLayout from '@/Layouts/DashboardLayout'
+import DateTimeSearch from '@/Components/DateTimeSearch'
 
-import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/all'
+import SalesMadeCard from '@/Components/SalesMadeCard'
+import ModalBox from '@/Components/ModalBox'
+import IconButton from '@/Components/IconButton'
+
+
+import {IoChevronBackOutline, IoChevronForwardOutline, IoAddOutline, IoRemoveOutline} from 'react-icons/all'
+
+let dummy_sales_made = [];
+for(let i=0; i < 10; i++) {
+    dummy_sales_made.push(`item_${i}`);
+}
 
 const SalesMade = () => {
 
+  const [modalState, setModalState] = useState(true);
 
   return (
     <DashboardLayout>
@@ -13,170 +25,16 @@ const SalesMade = () => {
             <input type="checkbox" name="date_search" className='mx-2'/>
             <DateTimeSearch />
         </div>
+
         <div className="salesmade custom-grid-box p-2" style={{'--size': '300px'}}>
 
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-
-                </div>
-            </div>
-
-            <div className="sales_card p-2 bg-white shadow rounded">
-                <div className="date text-sm bg-gray-100 rounded p-1">12th May 2023, 2:25pm</div>
-
-                <div className="name-quantity-box flex flex-col justify-center p-2">
-                    <span className="quantity font-bold text-2xl "> Ghc 2670</span>
-                    <span className='text-xs'>Multiple items bought</span>
-
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="quantity p-1 font-bold rounded blue">650 items</span>
-                    <button className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">Edit</button>
-                </div>
-            </div>
+            {
+                dummy_sales_made.map( card => <SalesMadeCard />)
+            }
 
         </div>
 
-        <div className="pagination-box flex justify-center mt-12">
+        <div className="pagination-box flex justify-center mt-12" onClick={() => setModalState(true)}>
 
             <button className="pagination-left rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
                 <IoChevronBackOutline />
@@ -199,6 +57,30 @@ const SalesMade = () => {
             </button>
 
         </div>
+
+        <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-2'>
+            <div className="item-bought-card flex items-center bg-light-blue p-1 rounded">
+                <div className="item-image h-[100px] w-[100px] transform scale-90 bg-white rounded overflow-hidden ">
+                    <img src = '/images/bag.jpg' className='h-full w-full object-contain'/>
+                </div>
+                <div className="item-info">
+                    <div className="item-name">Omaya 256 smooth</div>
+                    <div className="item-price">Ghc 200</div>
+                    <div className="item-quantity">12</div>
+                </div>
+                <div className="modify-quantity flex items-center">
+                    <IconButton classname='bg-light-green text-2xl transform scale-75'>
+                        <IoAddOutline />
+                    </IconButton>
+
+                    <input type="tel" name="item_count" className='w-[70px] h-[30px] rounded shadow border-none' />
+
+                    <IconButton classname='bg-red-200 text-2xl transform scale-75'>
+                        <IoRemoveOutline />
+                    </IconButton>
+                </div>
+            </div>
+        </ModalBox>
 
 
         
