@@ -28,6 +28,10 @@ Route::get('/sales/sales-made', function () {
     return Inertia::render('Sales/SalesMade');
 });
 
+Route::get('/sales/sales-stats', function () {
+    return Inertia::render('Sales/Statistics');
+});
+
 
 Route::get('/sales/products-listing', function () {
     return Inertia::render('Sales/ProductsListing');
