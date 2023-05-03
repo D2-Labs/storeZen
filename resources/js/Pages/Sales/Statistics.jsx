@@ -102,13 +102,13 @@ function Statistics() {
 
     return (
         <DashboardLayout>
-            <div className="flex flex-col justify-start items-start w-full px-5 py-5">
+            <div className="flex flex-col justify-start items-start w-full px-5 py-5 ">
                 <h1 className="text-[1.5rem] font-bold">Overview</h1>
 
                 {/* section one */}
-                <section className="grid grid-cols-[5fr_2fr] gap-x-2">
-                    <div className="w-full flex flex-col">
-                        <div className="flex items-center justify-center w-full text-gray-600  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 py-5">
+                <section className="flex flex-col w-full lg:grid lg:grid-cols-[5fr_2fr] lg:gap-x-2 lg:h-[45rem] ">
+                    <div className="w-full flex flex-col h-full overflow-hidden">
+                        <div className="flex flex-col md:flex-row items-center justify-center w-full text-gray-600  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 py-5">
                             {cards.map((card) => (
                                 <StatsPriceCard {...card} />
                             ))}
@@ -122,9 +122,12 @@ function Statistics() {
                     />
                 </section>
                 {/* second section */}
-                <section className="grid grid-cols-[5fr_2fr] gap-x-2">
-                    <div className="w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5 ]">
-                        <h1 className="text-[1.5rem] bold my-5  px-3 py-2">
+                <section className="flex flex-col w-full lg:grid lg:grid-cols-[5fr_2fr] lg:gap-x-2 lg:h-[30rem]">
+                    {/* flex flex-col md:flex-row items-center justify-center w-full
+                    text-gray-600 border-slate-200 shadow-sm shadow-slate-400
+                    rounded-md bg-white px-5 py-5 */}
+                    <div className="mb-5 md:mb-0 w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5">
+                        <h1 className="text-[1.5rem] font-bold my-5  px-3 py-2">
                             Top Selling Products
                         </h1>
                         <ProductsListingTable

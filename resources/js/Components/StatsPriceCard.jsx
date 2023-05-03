@@ -25,7 +25,7 @@ function StatsPriceCard({ digits, title, type = "sales" }) {
     return (
         <div
             className={
-                "grid grid-rows-1 w-4/12 px-5 py-3 rounded-md mr-2 " +
+                "my-2 md:my-0 grid grid-rows-1 md:w-4/12 w-11/12 px-5 py-3 rounded-md mr-2 " +
                 backgroundColor
             }
         >
@@ -38,7 +38,7 @@ function StatsPriceCard({ digits, title, type = "sales" }) {
             <div className="flex items-center justify-start w-full ">
                 <span className="flex-1 ml-2 flex items-center text-[1.5rem]">
                     {type != "orders" && <BsCurrencyDollar />}
-                    <span className="">{digits}</span>
+                    <span className="font-extrabold">{digits}</span>
                 </span>
                 <span className="inline-block px-2 py-2 rounded-md">
                     <TbArrowCurveRight className="text-[1.5rem]" />
