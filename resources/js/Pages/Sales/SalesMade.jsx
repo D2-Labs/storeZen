@@ -6,9 +6,12 @@ import DateTimeSearch from '@/Components/DateTimeSearch'
 import SalesMadeCard from '@/Components/SalesMadeCard'
 import ModalBox from '@/Components/ModalBox'
 import IconButton from '@/Components/IconButton'
+import Clickable from '@/Components/Clickable'
+import ItemBoughtCard from '@/Components/ItemBoughtCard'
 
 
-import {IoChevronBackOutline, IoChevronForwardOutline, IoAddOutline, IoRemoveOutline} from 'react-icons/all'
+
+import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/all'
 
 let dummy_sales_made = [];
 for(let i=0; i < 10; i++) {
@@ -58,28 +61,14 @@ const SalesMade = () => {
 
         </div>
 
-        <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-2'>
-            <div className="item-bought-card flex items-center bg-light-blue p-1 rounded">
-                <div className="item-image h-[100px] w-[100px] transform scale-90 bg-white rounded overflow-hidden ">
-                    <img src = '/images/bag.jpg' className='h-full w-full object-contain'/>
-                </div>
-                <div className="item-info">
-                    <div className="item-name">Omaya 256 smooth</div>
-                    <div className="item-price">Ghc 200</div>
-                    <div className="item-quantity">12</div>
-                </div>
-                <div className="modify-quantity flex items-center">
-                    <IconButton classname='bg-light-green text-2xl transform scale-75'>
-                        <IoAddOutline />
-                    </IconButton>
+        <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
 
-                    <input type="tel" name="item_count" className='w-[70px] h-[30px] rounded shadow border-none' />
-
-                    <IconButton classname='bg-red-200 text-2xl transform scale-75'>
-                        <IoRemoveOutline />
-                    </IconButton>
-                </div>
+            <div className="h-[400px] overflow-y-scroll w-full">
+                {dummy_sales_made.map(item => <ItemBoughtCard />)}
             </div>
+
+            <Clickable className='p-2 bg-blue w-full text-white rounded my-4'>Done</Clickable>
+            
         </ModalBox>
 
 
