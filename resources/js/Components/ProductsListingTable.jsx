@@ -4,13 +4,9 @@ function ProductsListingTable({
     products,
     hasCheckedBox = true,
     hasStatus = true,
+    showModal = () => {},
 }) {
-    const showDialog = (product) => {
-        console.log(
-            "🚀 ~ file: ProductsListingTable.jsx:9 ~ showDialog ~ product:",
-            product
-        );
-    };
+    
     return (
         <table className=" lg:mx-0 w-[100%] select-none cursor-pointer">
             <thead>
@@ -35,7 +31,7 @@ function ProductsListingTable({
                         product={product}
                         hasCheckedBox={hasCheckedBox}
                         hasStatus={hasStatus}
-                        handleClick={() => showDialog(product)}
+                        handleClick={() => showModal(product)}
                     />
                 ))}
             </tbody>

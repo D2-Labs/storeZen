@@ -6,6 +6,7 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import ProductsListingTable from "@/Components/ProductsListingTable";
 import DonutChart from "@/Components/DonutChart";
 import CustomerActivityGraph from "@/Components/CustomerActivityGraph";
+import ProductDetailModal from "@/Components/ProductDetailModal";
 
 const cards = [
     {
@@ -85,6 +86,8 @@ function Statistics() {
     const [customerActivityData, setCustomerActivityData] =
         useState(customerActivity);
     const [ordersGraphData, setOrdersGraphData] = useState(lineData);
+    const [modalState, setModalState] = useState(false);
+    const [modalProduct, setModalProduct] = useState({});
 
     const fetchData = useCallback(async () => {
         try {
@@ -96,12 +99,22 @@ function Statistics() {
         }
     }, []);
 
+    const showModal = (product) => {
+        setModalState(true);
+        setModalProduct(product);
+    };
+
     useEffect(() => {
         fetchData();
     }, [fetchData]);
 
     return (
         <DashboardLayout>
+            <ProductDetailModal
+                product={modalProduct}
+                closeCallback={() => setModalState(false)}
+                state={modalState}
+            />
             <div className="flex flex-col justify-start items-start w-full px-5 py-5 ">
                 <h1 className="text-[1.5rem] font-bold">Overview</h1>
 
@@ -133,6 +146,7 @@ function Statistics() {
                         <ProductsListingTable
                             products={products?.slice(0, 5)}
                             hasCheckedBox={false}
+                            showModal={showModal}
                         />
                     </div>
                     {/* <DemoGraph /> */}

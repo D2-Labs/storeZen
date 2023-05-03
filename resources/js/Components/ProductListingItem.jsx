@@ -40,19 +40,29 @@ function ProductListingItem({
                 )}
             </tr>
 
-            <tr className="table-row lg:hidden " onClick={handleClick}>
+            <tr
+                className="table-row lg:hidden"
+                onClick={(e) => {
+                    console.log(e.target);
+                    console.log(e.relatedTarget)
+                    console.log(e.currentTarget);
+                    if (e.target.classList.contains("title")) {
+                        handleClick();
+                    }
+                }}
+            >
                 <td className="table-cell">
                     <div className="relative flex flex-col w-full ">
                         <input
                             type="checkbox"
-                            className="peer absolute w-full opacity-0 z-10 h-12"
+                            className="peer absolute w-10 right-3 opacity-0 z-10 h-12"
                         />
-                        <div className="text-bold uppercase text-sm h-12 flex items-center p-3 bg-light-blue  rounded-t-md  rounded-b-md peer-checked:rounded-b-none ">
+                        <div className="text-bold uppercase text-sm h-12 flex items-center px-3 bg-light-blue  rounded-t-md  rounded-b-md peer-checked:rounded-b-none ">
                             <input type="checkbox" name="" id="" />
-                            <span className="flex-1 ml-4">title</span>
+                            <span className="flex items-center flex-1 ml-4 title  h-full">title</span>
                         </div>
 
-                        <div className="transition-transform duration-150 peer-checked:rotate-180 z-5 absolute right-4 top-4 ">
+                        <div className=" transition-transform duration-150 peer-checked:rotate-180 z-5 absolute right-4 top-4 ">
                             <TfiAngleDown className="w-[2rem]" />
                         </div>
 
