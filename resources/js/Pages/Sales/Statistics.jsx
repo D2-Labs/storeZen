@@ -46,12 +46,11 @@ const customerActivity = {
     labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
     datasets: [
         {
-            label: "Profits",
+            label: "Customer Activity",
             data: [10, 2, 11, 5, 7, 4, 8],
             borderRadius: 2,
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-
             barRadius: 10,
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
         },
     ],
 };

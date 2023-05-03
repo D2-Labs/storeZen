@@ -17,7 +17,7 @@ function DonutChart({ doughnutData, lineData }) {
                 }}
             />
 
-            <div className="PY-5 mt-5">
+            <div className="PY-5 mt-5 bg-slate-300 border rounded-md px-2 py3">
                 <h1 className="text-lg font-bold">Orders made This week</h1>
                 <Line
                     data={lineData}
