@@ -5,12 +5,14 @@ function ProductListingItem({
     product,
     hasCheckedBox = true,
     hasStatus = true,
+    handleClick = () => {},
 }) {
     return (
         <>
             <tr
                 className="hidden lg:table-row border-b border-gray-300 lg:h-[3.5rem]"
                 key={product.id}
+                onClick={handleClick}
             >
                 {hasCheckedBox && (
                     <td className="">
@@ -38,7 +40,7 @@ function ProductListingItem({
                 )}
             </tr>
 
-            <tr className="table-row lg:hidden ">
+            <tr className="table-row lg:hidden " onClick={handleClick}>
                 <td className="table-cell">
                     <div className="relative flex flex-col w-full ">
                         <input
