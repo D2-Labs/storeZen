@@ -19,6 +19,11 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@devexpress/dx-react-chart": "^4.0.3",
+        "@devexpress/dx-react-chart-material-ui": "^4.0.3",
+        "@devexpress/dx-react-core": "^4.0.3",
+        "chart.js": "^4.3.0",
+        "react-chartjs-2": "^5.2.0",
         "react-datepicker": "^4.11.0",
         "react-icons": "^4.8.0"
     }
