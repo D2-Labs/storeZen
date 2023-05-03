@@ -32,9 +32,12 @@ Route::get('/sales/sales-stats', function () {
     return Inertia::render('Sales/Statistics');
 });
 
-
 Route::get('/sales/products-listing', function () {
     return Inertia::render('Sales/ProductsListing');
+});
+
+Route::get('/sales/profile', function () {
+    return Inertia::render('Sales/Profile');
 });
 
 

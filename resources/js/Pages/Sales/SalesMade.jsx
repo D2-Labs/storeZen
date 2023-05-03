@@ -1,276 +1,80 @@
-import React from "react";
-import DashboardLayout from "../../Layouts/DashboardLayout";
-import DateTimeSearch from "../../Components/DateTimeSearch";
+import React from 'react'
+import {useState} from 'react'
+import DashboardLayout from '@/Layouts/DashboardLayout'
+import DateTimeSearch from '@/Components/DateTimeSearch'
 
-import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/all";
-import Clickable from "@/Components/Clickable";
+import SalesMadeCard from '@/Components/SalesMadeCard'
+import ModalBox from '@/Components/ModalBox'
+import IconButton from '@/Components/IconButton'
+import Clickable from '@/Components/Clickable'
+import ItemBoughtCard from '@/Components/ItemBoughtCard'
+
+
+
+import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/all'
+
+let dummy_sales_made = [];
+for(let i=0; i < 10; i++) {
+    dummy_sales_made.push(`item_${i}`);
+}
 
 const SalesMade = () => {
-    return (
-        <DashboardLayout>
-            <div className="search-box sm:flex items-center p-5">
-                <input type="checkbox" name="date_search" className="mx-2" />
-                <DateTimeSearch />
-            </div>
-            <div
-                className="salesmade custom-grid-box p-2"
-                style={{ "--size": "300px" }}
-            >
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
 
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
+  const [modalState, setModalState] = useState(true);
 
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded" >
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
+  return (
+    <DashboardLayout>
+        <div className="search-box sm:flex items-center p-5">
+            <input type="checkbox" name="date_search" className='mx-2'/>
+            <DateTimeSearch />
+        </div>
 
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
+        <div className="salesmade custom-grid-box p-2" style={{'--size': '300px'}}>
 
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
+            {
+                dummy_sales_made.map( card => <SalesMadeCard />)
+            }
 
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
+        </div>
 
-                    </div>
-                </div>
+        <div className="pagination-box flex justify-center mt-12" onClick={() => setModalState(true)}>
 
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
+            <button className="pagination-left rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
+                <IoChevronBackOutline />
+            </button>
 
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
+            <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
+                1
+            </button>
 
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
+            <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
+                2
+            </button>
 
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
+            <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
+                3
+            </button>
 
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
+            <button className="pagination-right rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
+                <IoChevronForwardOutline />
+            </button>
 
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
+        </div>
 
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
+        <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
 
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
-
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
-
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
-
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
-
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
-
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
-
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
-
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
-
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
-
-                <div className="sales_card p-2 bg-white shadow rounded">
-                    <div className="date text-sm bg-gray-100 rounded p-1">
-                        12th May 2023, 2:25pm
-                    </div>
-
-                    <div className="name-quantity-box flex flex-col justify-center p-2">
-                        <span className="quantity font-bold text-2xl ">
-                            {" "}
-                            Ghc 2670
-                        </span>
-                        <span className="text-xs">Multiple items bought</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                        <span className="quantity p-1 font-bold rounded blue">
-                            650 items
-                        </span>
-                        <Clickable className="bg-blue px-4 py-[2.5px] text-white font-medium rounded">
-                            Edit
-                        </Clickable>
-                    </div>
-                </div>
+            <div className="h-[400px] overflow-y-scroll w-full">
+                {dummy_sales_made.map(item => <ItemBoughtCard />)}
             </div>
 
-            <div className="pagination-box flex justify-center mt-12">
-                <Clickable className="pagination-left rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    <IoChevronBackOutline />
-                </Clickable>
+            <Clickable className='p-2 bg-blue w-full text-white rounded my-4'>Done</Clickable>
+            
+        </ModalBox>
 
-                <Clickable className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    1
-                </Clickable>
 
-                <Clickable className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    2
-                </Clickable>
+        
+    </DashboardLayout>
+  )
+}
 
-                <Clickable className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    3
-                </Clickable>
-
-                <Clickable className="pagination-right rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    <IoChevronForwardOutline />
-                </Clickable>
-            </div>
-        </DashboardLayout>
-    );
-};
-
-export default SalesMade;
+export default SalesMade

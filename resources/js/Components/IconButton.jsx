@@ -1,16 +1,16 @@
 import React from 'react'
 
-const IconButton = ({ children, onclick = () => {}, link = '', classname = '', name = '' }) => {
+const IconButton = ({ children, link = '', classname = '', name = '', ...rest }) => {
 
-  classname = `iconbutton notification-btn flex justify-center items-center w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] rounded-full relative ${classname}`;
+  classname = `iconbutton notification-btn flex justify-center items-center w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] rounded-full ${classname}`;
   
   return (
     link == '' ?
-    <button onClick={onclick} className={classname} style={{'--name': `"${name}"`}}>
+    <button className={classname} style={{'--name': `"${name}"`}} {...rest}>
         {children}
     </button> 
     :
-    <a onClick={onclick} href={link} className={classname}>
+    <a href={link} className={classname} {...rest}>
         {children}
     </a> 
 
