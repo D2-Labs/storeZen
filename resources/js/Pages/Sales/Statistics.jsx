@@ -6,7 +6,6 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import ProductsListingTable from "@/Components/ProductsListingTable";
 import DonutChart from "@/Components/DonutChart";
 import CustomerActivityGraph from "@/Components/CustomerActivityGraph";
-import DemoGraph from "@/Components/DemoGraph";
 
 const cards = [
     {
