@@ -62,7 +62,7 @@ function ProductListings() {
             <ModalBox
                 state={submitModalState}
                 closeCallback={() => setSubmitModalState(false)}
-                classname="p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]"
+                classname="p-4 bg-light-blue w-[90vw]  h-[490px]"
             >
                 <div className="h-[400px] overflow-y-scroll w-full">
                     {dummy_sales_made.map((item) => (
