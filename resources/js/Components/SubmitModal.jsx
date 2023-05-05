@@ -11,8 +11,8 @@ function SubmitModal({ submitModalState, handleSubmitState, data }) {
             classname="p-4 bg-light-blue w-[90vw] h-[490px]"
         >
             <div className="h-[400px] overflow-auto w-full scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-200 scroll-smooth">
-                {data?.map((item) => (
-                    <ItemBoughtCard />
+                {data?.map((item, index) => (
+                    <ItemBoughtCard key={index} />
                 ))}
             </div>
 

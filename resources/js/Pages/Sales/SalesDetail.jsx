@@ -4,6 +4,7 @@ import { useCallback, useState, useEffect } from "react";
 import SearchInput from "@/Components/SearchInput";
 import Clickable from "@/Components/Clickable";
 import SubmitModal from "@/Components/SubmitModal";
+import SalesLayout from "@/Layouts/SalesLayout";
 
 function SalesDetail() {
     let dummy_sales_made = [];
@@ -27,11 +28,14 @@ function SalesDetail() {
     }, [fetchData]);
 
     return (
-        <DashboardLayout >
+        <SalesLayout>
             <div className="mx-5 my-5 flex flex-col">
                 <div className="flex py-5">
                     <h1 className="text-[1.5rem] font-bold flex items-center w-full">
-                        Sales Id <span className="ml-2 px-3 py-2 bg-slate-200 rounded-lg">00012231776</span>
+                        Sales Id{" "}
+                        <span className="ml-2 px-3 py-2 bg-slate-200 rounded-lg">
+                            00012231776
+                        </span>
                     </h1>
                     <span>date</span>
                 </div>
@@ -56,7 +60,7 @@ function SalesDetail() {
                 handleSubmitState={() => setSubmitState(false)}
                 submitModalState={submitState}
             />
-        </DashboardLayout>
+        </SalesLayout>
     );
 }
 

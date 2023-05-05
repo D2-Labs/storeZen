@@ -2,12 +2,11 @@ import { useState, useCallback, useEffect } from "react";
 import BarChart from "@/Components/BarChart";
 import StatsPriceCard from "@/Components/StatsPriceCard";
 
-import DashboardLayout from "@/Layouts/DashboardLayout";
+import SalesLayout from "@/Layouts/SalesLayout";
 import ProductsListingTable from "@/Components/ProductsListingTable";
 import DonutChart from "@/Components/DonutChart";
 import CustomerActivityGraph from "@/Components/CustomerActivityGraph";
 import ProductDetailModal from "@/Components/ProductDetailModal";
-import navlinks from "@/CentralInfo/salesNavLinks.js";
 
 const cards = [
     {
@@ -110,7 +109,7 @@ function Statistics() {
     }, [fetchData]);
 
     return (
-        <DashboardLayout nav_icons={navlinks}>
+        <SalesLayout>
             <ProductDetailModal
                 product={modalProduct}
                 closeCallback={() => setModalState(false)}
@@ -156,7 +155,7 @@ function Statistics() {
                     <CustomerActivityGraph barData={customerActivityData} />
                 </section>
             </div>
-        </DashboardLayout>
+        </SalesLayout>
     );
 }
 
