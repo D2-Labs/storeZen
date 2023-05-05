@@ -3,9 +3,12 @@ import SearchInput from "@/Components/SearchInput";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import Clickable from "@/Components/Clickable";
 import ProductsListingTable from "@/Components/ProductsListingTable";
+import ProductDetailModal from "@/Components/ProductDetailModal";
 
 function ProductListings() {
     const [products, setProductsData] = useState(null);
+    const [product, setProduct] = useState({});
+    const [modalState, setModalState] = useState(false);
 
     const fetchData = useCallback(async () => {
         try {
@@ -23,6 +26,11 @@ function ProductListings() {
 
     return (
         <DashboardLayout>
+            <ProductDetailModal
+                closeCallback={() => setModalState(false)}
+                product={product}
+                state={modalState}
+            />
             <div className="w-full h-max  flex flex-col overflow-auto px-5 pb-5">
                 <h2 className="text-[1.5rem] font-bold capitalize mx-5 my-5">
                     Products
@@ -37,7 +45,13 @@ function ProductListings() {
                         </Clickable>
                     </div>
                     <div className="w-full md:px-3 py-2 flex flex-col items-center justify-start md:mt-3 ">
-                        <ProductsListingTable products={products} />
+                        <ProductsListingTable
+                            products={products}
+                            showModal={(product) => {
+                                setProduct(product);
+                                setModalState(true);
+                            }}
+                        />
                     </div>
                 </section>
             </div>

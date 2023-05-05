@@ -11,11 +11,18 @@ function ProductListingItem({
             <tr
                 className="hidden lg:table-row border-b border-gray-300 lg:h-[3.5rem]"
                 key={product?.id}
-                onClick={handleClick}
+                onClick={(e) => {
+                    if (
+                        !e.target.classList.contains("checkbox") &&
+                        !e.target.classList.contains("checkbox-container")
+                    ) {
+                        handleClick();
+                    }
+                }}
             >
                 {hasCheckedBox && (
-                    <td className="">
-                        <input type="checkbox" name="" id="" />
+                    <td className="checkbox-container">
+                        <input type="checkbox" name="" className="checkbox" />
                     </td>
                 )}
                 <td className="">
