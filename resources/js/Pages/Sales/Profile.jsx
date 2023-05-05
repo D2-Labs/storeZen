@@ -45,8 +45,8 @@ const Profile = () => {
                     <h2 className='text-base sm:text-xl font-bold'>65606 <span className='text-sm font-light'>Ghc</span></h2>
 
                     <select className='rounded text-xs sm:text-base' name="opitions" onChange={(event) => setOptionValue(event.target.value)}>
-                        <option value="tasks">Task Assigned</option>
                         <option value="goods">Goods Assigned</option>
+                        <option value="tasks">Task Assigned</option>
                     </select>
                 </div>
 

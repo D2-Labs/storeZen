@@ -63,7 +63,10 @@ const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
                 </IconButton>
 
                 <div className={`profile-dropdown absolute top-[55px] right-0 bg-white p-2 px-3 rounded w-max shadow z-20 ${profileDropdownState && 'hidden'}`}>
-                    <Clickable className="dropdown-item hover:bg-blue-50 px-4 py-1 rounded">Profile</Clickable> <br />
+                    <Link href='/sales/profile'>
+                        <Clickable className="dropdown-item hover:bg-blue-50 px-4 py-1 rounded">Profile</Clickable>
+                    </Link>
+                     <br />
                     <Clickable className="dropdown-item hover:bg-blue-50 px-4 py-1 rounded">Log Out</Clickable>
                 </div>
 

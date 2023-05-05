@@ -20,6 +20,7 @@ function ProductListings() {
     const [products, setProductsData] = useState(null);
     const [product, setProduct] = useState({});
     const [modalState, setModalState] = useState(false);
+    const [submitModalState, setSubmitModalState] = useState(false);
 
     const fetchData = useCallback(async () => {
         try {
@@ -55,7 +56,7 @@ function ProductListings() {
                     <div className="w-full py-2 px-3 flex flex-col md:flex-row items-center justify-between">
                         {/* section search bar */}
                         <SearchInput />
-                        <Clickable className="bg-blue-600 px-3 py-2 text-white self-end mt-3 md:mt-0" handleClick={() => setModalState(true)}>
+                        <Clickable className="bg-blue-600 px-3 py-2 text-white self-end mt-3 md:mt-0" handleClick={() => setSubmitModalState(true)}>
                             Submit
                         </Clickable>
                     </div>
@@ -71,7 +72,7 @@ function ProductListings() {
                 </section>
             </div>
 
-            <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
+            <ModalBox state={submitModalState} closeCallback={() => setSubmitModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
 
                 <div className="h-[400px] overflow-y-scroll w-full">
                     {dummy_sales_made.map(item => <ItemBoughtCard />)}
