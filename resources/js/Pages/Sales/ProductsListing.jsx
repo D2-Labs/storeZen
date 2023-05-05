@@ -3,6 +3,7 @@ import SearchInput from "@/Components/SearchInput";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import Clickable from "@/Components/Clickable";
 import ProductsListingTable from "@/Components/ProductsListingTable";
+import ProductDetailModal from "@/Components/ProductDetailModal";
 
 import ModalBox from '@/Components/ModalBox'
 import IconButton from '@/Components/IconButton'
@@ -17,6 +18,8 @@ for(let i=0; i < 10; i++) {
 
 function ProductListings() {
     const [products, setProductsData] = useState(null);
+    const [product, setProduct] = useState({});
+    const [modalState, setModalState] = useState(false);
 
     const fetchData = useCallback(async () => {
         try {
@@ -32,7 +35,6 @@ function ProductListings() {
         fetchData();
     }, [fetchData]);
 
-    const [modalState, setModalState] = useState(false);
 
 
     return (
@@ -51,7 +53,13 @@ function ProductListings() {
                         </Clickable>
                     </div>
                     <div className="w-full md:px-3 py-2 flex flex-col items-center justify-start md:mt-3 ">
-                        <ProductsListingTable products={products} />
+                        <ProductsListingTable
+                            products={products}
+                            showModal={(product) => {
+                                setProduct(product);
+                                setModalState(true);
+                            }}
+                        />
                     </div>
                 </section>
             </div>

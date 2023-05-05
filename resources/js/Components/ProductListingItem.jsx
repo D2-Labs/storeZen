@@ -1,4 +1,3 @@
-import IconButton from "./IconButton";
 import { TfiAngleDown } from "react-icons/all";
 
 function ProductListingItem({
@@ -11,12 +10,19 @@ function ProductListingItem({
         <>
             <tr
                 className="hidden lg:table-row border-b border-gray-300 lg:h-[3.5rem]"
-                key={product.id}
-                onClick={handleClick}
+                key={product?.id}
+                onClick={(e) => {
+                    if (
+                        !e.target.classList.contains("checkbox") &&
+                        !e.target.classList.contains("checkbox-container")
+                    ) {
+                        handleClick();
+                    }
+                }}
             >
                 {hasCheckedBox && (
-                    <td className="">
-                        <input type="checkbox" name="" id="" />
+                    <td className="checkbox-container">
+                        <input type="checkbox" name="" className="checkbox" />
                     </td>
                 )}
                 <td className="">
@@ -44,9 +50,12 @@ function ProductListingItem({
                 className="table-row lg:hidden"
                 onClick={(e) => {
                     console.log(e.target);
-                    console.log(e.relatedTarget)
+                    console.log(e.relatedTarget);
                     console.log(e.currentTarget);
-                    if (e.target.classList.contains("title")) {
+                    if (
+                        e.target.classList.contains("title") ||
+                        e.target.classList.contains("image")
+                    ) {
                         handleClick();
                     }
                 }}
@@ -55,14 +64,23 @@ function ProductListingItem({
                     <div className="relative flex flex-col w-full ">
                         <input
                             type="checkbox"
-                            className="peer absolute w-10 right-3 opacity-0 z-10 h-12"
+                            className="peer absolute w-8 right-2 opacity-0 z-10 h-12"
                         />
                         <div className="text-bold uppercase text-sm h-12 flex items-center px-3 bg-light-blue  rounded-t-md  rounded-b-md peer-checked:rounded-b-none ">
-                            <input type="checkbox" name="" id="" />
-                            <span className="flex items-center flex-1 ml-4 title  h-full">title</span>
+                            {hasCheckedBox && (
+                                <input type="checkbox" name="" id="" />
+                            )}
+                            <img
+                                src={product?.image}
+                                alt=""
+                                className="image w-8 h-8 mx-[.5rem]"
+                            />
+                            <span className="flex items-center flex-1 ml-2 title  text-[.5rem] mr-5  h-8 center overflow-hidden">
+                                {product?.title}
+                            </span>
                         </div>
 
-                        <div className=" transition-transform duration-150 peer-checked:rotate-180 z-5 absolute right-4 top-4 ">
+                        <div className=" transition-transform duration-150 peer-checked:rotate-180 z-5 absolute right-1 top-4 ">
                             <TfiAngleDown className="w-[2rem]" />
                         </div>
 
@@ -71,11 +89,6 @@ function ProductListingItem({
                                 <tr className="border-b border-slate-100 h-[2.5rem]">
                                     <td className="pl-3">Category :</td>
                                     <td>Omaya</td>
-                                    <td>
-                                        <span className="bg-green-500 text-white inline-block px-3 py-[1px] rounded-xl">
-                                            status
-                                        </span>
-                                    </td>
                                 </tr>
                                 <tr className="border-b border-slate-100 h-[2.5rem]">
                                     <td className="pl-3">Price</td>
@@ -88,6 +101,14 @@ function ProductListingItem({
                                 <tr className=" h-[2.5rem] ">
                                     <td className="pl-3">Variants</td>
                                     <td> red, blue, green</td>
+                                </tr>
+                                <tr>
+                                    <td className="pl-3">Status:</td>
+                                    <td>
+                                        <span className="bg-green-500 text-white inline-block px-3 py-[1px] rounded-xl">
+                                            status
+                                        </span>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
