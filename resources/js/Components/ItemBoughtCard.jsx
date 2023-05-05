@@ -27,12 +27,12 @@ const ItemBoughtCard = ({name = 'Omaya 3330 smooth and', price = '200'}) => {
 
             <div className="flex items-center justify-between md:justify-start w-full md:w-[250px]">
                 <div className='w-1/2'>
-                    <span>Price({price})</span> <br />
+                    <span>Price({price})</span> 
                     <input type="tel" name='sell-price' className='w-[90%] h-[30px] border-none rounded shadow'/>
                 </div>
 
                 <div className='w-1/2  flex flex-col items-end'>
-                    <span className='w-[90%]'>Quantity</span> <br />
+                    <span className='w-[90%]'>Quantity</span> 
                     <input type="number" name='sell-price' className='w-[90%] h-[30px] border-none rounded shadow'/>
                 </div>
             </div>

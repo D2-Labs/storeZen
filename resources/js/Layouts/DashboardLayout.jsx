@@ -34,7 +34,7 @@ let navigation_icons = [
     
 
 
-const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
+const DashboardLayout = ({children, nav_icons = navigation_icons, profile = '/sales/profile', notification = '/sales/notifications'}) => {
     const [profileDropdownState, setProfileDropdownState] = useState(true);
     const [menuBtnState, setMenuBtnState] = useState(true);
 
@@ -54,16 +54,18 @@ const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
             <div className="logo font-bold text-lg sm:text-2xl">Store<span className='blue'>Zen</span></div>
             <div className="nav-left flex items-center relative">
 
-                <IconButton classname='text-lg sm:text-2xl bg-gray-200 mx-1'>
-                    <IoMdNotificationsOutline />
-                </IconButton>
+                <Link href={notification}>
+                    <IconButton classname='text-lg sm:text-2xl bg-gray-200 mx-1'>
+                        <IoMdNotificationsOutline />
+                    </IconButton>
+                </Link>
 
                 <IconButton classname='text-sm sm:text-normal text-white bg-blue mx-1' onClick={() => setProfileDropdownState(!profileDropdownState)}>
                     DS
                 </IconButton>
 
                 <div className={`profile-dropdown absolute top-[55px] right-0 bg-white p-2 px-3 rounded w-max shadow z-20 ${profileDropdownState && 'hidden'}`}>
-                    <Link href='/sales/profile'>
+                    <Link href={profile}>
                         <Clickable className="dropdown-item hover:bg-blue-50 px-4 py-1 rounded">Profile</Clickable>
                     </Link>
                      <br />
