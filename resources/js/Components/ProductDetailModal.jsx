@@ -7,15 +7,15 @@ function ProductDetailModal({ product, state, closeCallback }) {
             state={state}
             closeCallback={() => closeCallback(false)}
             classname={
-                "h-[30rem] md:h-[35rem] lg:h-max mx-3 md:w-9/12 lg:mx-10"
+                "h-[30rem] md:h-[35rem] lg:h-max lg:max-h-[90%] mx-3 md:w-9/12 lg:mx-10"
             }
         >
-            <div className="overflow-auto scrollbar-thin h-full   scrollbar-track-transparent scrollbar-thumb-slate-200">
-                <div className="flex flex-col lg:grid lg:grid-cols-2 w-full px-10 py-5 ">
-                    <div className="relative w-full overflow-hidden flex items-center justify-center border border-slate-300 py-1">
+            <div className="overflow-auto scrollbar-thin h-full scrollbar-track-transparent scrollbar-thumb-slate-200 lg:max-h-[30rem] lg:overflow-hidden">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 w-full px-10 py-5">
+                    <div className="relative w-full overflow-hidden flex items-center justify-center border border-slate-300 py-1 lg:max-h-[28rem] ">
                         <img src={product?.image} alt="" className="w-7/12" />
                     </div>
-                    <div className="w-full flex flex-col ml-3">
+                    <div className="w-full flex flex-col ml-3 overflow-auto lg:max-h-[28rem]  scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-200 scroll-smooth">
                         <div className="flex items-center mr-5 mb-4">
                             <h1 className="flex-1 text-[1.5rem] font-bold">
                                 {product?.title}
