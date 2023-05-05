@@ -139,7 +139,7 @@ function Statistics() {
                     {/* flex flex-col md:flex-row items-center justify-center w-full
                     text-gray-600 border-slate-200 shadow-sm shadow-slate-400
                     rounded-md bg-white px-5 py-5 */}
-                    <div className="mb-5 md:mb-0 w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5 max-h-[40rem] overflow-hidden">
+                    <div className="mb-5 md:mb-0 w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5 h-max  max-h-[30rem] overflow-hidden">
                         <h1 className="text-[1.5rem] font-bold my-5  px-3 py-2">
                             Top Selling Products
                         </h1>
