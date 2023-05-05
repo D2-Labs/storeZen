@@ -38,6 +38,10 @@ Route::get('/sales/profile', function () {
     return Inertia::render('Sales/Profile');
 })->name('sales-profile');
 
+Route::get('/sales/notifications', function () {
+    return Inertia::render('Sales/Notifications');
+})->name('sales-notifications');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

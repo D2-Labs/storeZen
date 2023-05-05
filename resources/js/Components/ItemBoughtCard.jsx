@@ -26,7 +26,6 @@ const ItemBoughtCard = ({ name = "Omaya 3330 smooth and", price = "200" }) => {
                     <IoChevronDownOutline className="md:hidden" />
                 </div>
             </div>
-
             <div
                 className={`w-full md:w-max transition-all  overflow-hidden md:overflow-show shadow md:shadow-none bg-gray-100 md:bg-white md:flex ${
                     dropdownState ? "h-max p-2" : "h-0 p-0"
@@ -34,7 +33,7 @@ const ItemBoughtCard = ({ name = "Omaya 3330 smooth and", price = "200" }) => {
             >
                 <div className="flex items-center justify-between md:justify-start w-full md:w-[250px]">
                     <div className="w-1/2">
-                        <span>Price({price})</span> <br />
+                        <span>Price({price})</span>
                         <input
                             type="tel"
                             name="sell-price"
@@ -54,7 +53,8 @@ const ItemBoughtCard = ({ name = "Omaya 3330 smooth and", price = "200" }) => {
 
                 <div className="flex justify-between items-center mt-3 md:w-[250px]">
                     <div className="px-6">
-                        <small className="text-xs py-[1px]">Sub-Total</small>
+                        <small className="text-xs py-[1px]">Sub-Total</small>{" "}
+                        <br />
                         <span>Ghc 340</span>
                     </div>
 
