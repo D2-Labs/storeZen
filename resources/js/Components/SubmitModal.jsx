@@ -8,9 +8,9 @@ function SubmitModal({ submitModalState, handleSubmitState, data }) {
         <ModalBox
             state={submitModalState}
             closeCallback={handleSubmitState}
-            classname="p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]"
+            classname="p-4 bg-light-blue w-[90vw] h-[490px]"
         >
-            <div className="h-[400px] overflow-y-scroll w-full">
+            <div className="h-[400px] overflow-auto w-full scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-200 scroll-smooth">
                 {data?.map((item) => (
                     <ItemBoughtCard />
                 ))}

@@ -59,7 +59,7 @@ function ProductListings() {
                 </section>
             </div>
 
-            <ModalBox state={submitModalState} closeCallback={() => setSubmitModalState(false)} classname='p-4 bg-light-blue w-[90vw] h-[490px]'>
+            {/* <ModalBox state={submitModalState} closeCallback={() => setSubmitModalState(false)} classname='p-4 bg-light-blue w-[90vw] h-[490px]'>
 
                 <div className="h-[400px] overflow-y-scroll w-full">
                     {dummy_sales_made.map((item) => (
@@ -70,13 +70,13 @@ function ProductListings() {
                 <Clickable className="p-2 bg-blue w-full text-white rounded my-4">
                     Done
                 </Clickable>
-            </ModalBox>
+            </ModalBox> */}
 
-            {/* <SubmitModal
+            <SubmitModal
                 data={dummy_sales_made}
                 handleSubmitState={() => setSubmitModalState(false)}
                 submitModalState={submitModalState}
-            /> */}
+            />
         </DashboardLayout>
     );
 }
