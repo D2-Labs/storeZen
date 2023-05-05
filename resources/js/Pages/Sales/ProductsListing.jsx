@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import SearchInput from "@/Components/SearchInput";
-import DashboardLayout from "@/Layouts/DashboardLayout";
+import SalesLayout from "@/Layouts/SalesLayout";
 import Clickable from "@/Components/Clickable";
 import ProductsListingTable from "@/Components/ProductsListingTable";
 import ProductDetailModal from "@/Components/ProductDetailModal";
@@ -8,8 +8,6 @@ import ProductDetailModal from "@/Components/ProductDetailModal";
 import ModalBox from '@/Components/ModalBox'
 import IconButton from '@/Components/IconButton'
 import ItemBoughtCard from '@/Components/ItemBoughtCard'
-
-import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 let dummy_sales_made = [];
 for(let i=0; i < 10; i++) {
@@ -39,7 +37,7 @@ function ProductListings() {
 
 
     return (
-        <DashboardLayout nav_icons={navlinks} >
+        <SalesLayout >
 
             <ProductDetailModal
                 closeCallback={() => setModalState(false)}
@@ -81,7 +79,7 @@ function ProductListings() {
                 <Clickable className='p-2 bg-blue w-full text-white rounded my-4'>Done</Clickable>
                 
             </ModalBox>
-        </DashboardLayout>
+        </SalesLayout>
     );
 }
 

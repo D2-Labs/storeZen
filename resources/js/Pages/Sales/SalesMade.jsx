@@ -1,13 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
-import DashboardLayout from '@/Layouts/DashboardLayout'
+import SalesLayout from '@/Layouts/SalesLayout'
 import DateTimeSearch from '@/Components/DateTimeSearch'
 
 import SalesMadeCard from '@/Components/SalesMadeCard'
 import IconButton from '@/Components/IconButton'
 
-
-import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 
 import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/all'
@@ -21,7 +19,7 @@ const SalesMade = () => {
 
 
   return (
-    <DashboardLayout nav_icons={navlinks}>
+    <SalesLayout>
         <div className="search-box sm:flex items-center p-5">
             <input type="checkbox" name="date_search" className='mx-2'/>
             <DateTimeSearch />
@@ -59,7 +57,7 @@ const SalesMade = () => {
 
         </div>
         
-    </DashboardLayout>
+    </SalesLayout>
   )
 }
 

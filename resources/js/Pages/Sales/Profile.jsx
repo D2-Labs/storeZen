@@ -1,8 +1,7 @@
 import React           from 'react'
 import {useState}      from 'react'
-import DashboardLayout from '@/Layouts/DashboardLayout'
+import SalesLayout from '@/Layouts/SalesLayout'
 import Clickable       from '@/Components/Clickable'
-import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 
 const Profile = () => {
@@ -10,7 +9,7 @@ const Profile = () => {
     const [optionValue, setOptionValue] = useState('goods');
 
   return (
-    <DashboardLayout nav_icons={navlinks}>
+    <SalesLayout>
         <div className="info-box mb-5 sm:mb-10 p-6 text-center relative">
             <div className="relative z-10">
                 <div className="profile-image h-[140px] w-[140px] sm:h-[240px] sm:w-[240px] rounded-full shadow bg-blue flex items-center justify-center text-4xl sm:text-8xl font-bold text-white mx-auto my-0">
@@ -141,7 +140,7 @@ const Profile = () => {
                 
             </div>
         </div>
-    </DashboardLayout>
+    </SalesLayout>
   )
 }
 
