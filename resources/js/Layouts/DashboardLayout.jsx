@@ -1,8 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
-import { IoMdNotificationsOutline, TfiLayoutGrid2, AiOutlineShoppingCart, IoPricetagsOutline, IoPeopleOutline} from 'react-icons/all';
+import { IoMdNotificationsOutline, TfiLayoutGrid2, AiOutlineShoppingCart, IoPricetagsOutline, IoPeopleOutline, VscListSelection, IoCloseOutline} from 'react-icons/all';
 import IconButton from '../Components/IconButton';
 import Clickable from '../Components/Clickable';
+
+import {Link} from '@inertiajs/react'
 
 let navigation_icons = [
     {
@@ -34,11 +36,21 @@ let navigation_icons = [
 
 const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
     const [profileDropdownState, setProfileDropdownState] = useState(true);
+    const [menuBtnState, setMenuBtnState] = useState(true);
 
   return (
     <div className='h-screen overflow-hidden relative'>
 
         <nav className='flex justify-between items-center p-2 sm:px-4 h-[50px] sm:h-[60px] '>
+
+            <IconButton classname='text-lg sm:text-2xl bg-gray-200 mx-1 sm:hidden' onClick={() => setMenuBtnState(!menuBtnState)}>
+                {
+                    menuBtnState?
+                        <VscListSelection /> : 
+                        <IoCloseOutline />
+                }
+            </IconButton>
+
             <div className="logo font-bold text-lg sm:text-2xl">Store<span className='blue'>Zen</span></div>
             <div className="nav-left flex items-center relative">
 
@@ -60,14 +72,17 @@ const DashboardLayout = ({children, nav_icons = navigation_icons}) => {
         
         <div className="dashplate flex h-full ">
 
-            <div className="navigations flex flex-col items-center pt-5 w-[50px] sm:w-[60px] h-full text-gray-600 relative ">
+            <div className={`navigations flex sm:items-center flex-col pl-2 pr-5 sm:pl-0 sm:pr-0 pt-5 w-max sm:w-[60px] h-full text-gray-600 fixed sm:static top-[50px] ${menuBtnState? 'left-[-100vw]' : 'left-0'} z-20 bg-white shadow`}>
                 
                 {
                     nav_icons.map(icon => 
                          (
-                            <IconButton classname='text-lg sm:text-2xl my-2' name={icon.name} key={icon.name}>
-                                <icon.icon/>
-                            </IconButton>
+                            <Link href={icon.link} className='flex items-center border-b sm:border-none'>
+                                <IconButton classname='text-lg sm:text-2xl my-2 relative' name={icon.name} key={icon.name}>
+                                    <icon.icon/>
+                                </IconButton>
+                                <span className='sm:hidden'>{icon.name}</span>
+                            </Link>
                         )
                     )
                 }
