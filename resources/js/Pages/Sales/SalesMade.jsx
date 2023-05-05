@@ -5,8 +5,6 @@ import DateTimeSearch from '@/Components/DateTimeSearch'
 
 import SalesMadeCard from '@/Components/SalesMadeCard'
 import IconButton from '@/Components/IconButton'
-
-
 import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 
@@ -58,7 +56,7 @@ const SalesMade = () => {
             </button>
 
         </div>
-        
+
     </DashboardLayout>
   )
 }

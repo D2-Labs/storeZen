@@ -22,6 +22,10 @@ Route::get('/sales/sales-made', function () {
     return Inertia::render('Sales/SalesMade');
 })->name('sales-made');
 
+Route::get('/sales/sales-made/{sale}', function () {
+    return Inertia::render('Sales/SalesDetail');
+})->name('sales-made');
+
 Route::get('/sales/sales-stats', function () {
     return Inertia::render('Sales/Statistics');
 })->name('sales-statistics');
@@ -45,4 +49,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

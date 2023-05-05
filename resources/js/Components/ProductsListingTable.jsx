@@ -1,14 +1,23 @@
 import ProductListingItem from "./ProductListingItem";
+import { useCallback, useEffect, useState } from "react";
+import ProductDetailModal from "./ProductDetailModal";
 
 function ProductsListingTable({
     products,
     hasCheckedBox = true,
     hasStatus = true,
-    showModal = () => {},
 }) {
-    
+    const [product, setProduct] = useState({});
+    const [modalState, setModalState] = useState(false);
+
     return (
         <table className=" lg:mx-0 w-[100%] select-none cursor-pointer">
+            <ProductDetailModal
+                closeCallback={() => setModalState(false)}
+                product={product}
+                state={modalState}
+            />
+
             <thead>
                 <tr className="hidden lg:table-row lg:border-b lg:border-gray-300">
                     {hasCheckedBox && (
@@ -31,7 +40,11 @@ function ProductsListingTable({
                         product={product}
                         hasCheckedBox={hasCheckedBox}
                         hasStatus={hasStatus}
-                        handleClick={() => showModal(product)}
+                        handleClick={() =>
+                        {
+                            setProduct(product)
+                            setModalState(true)
+                        }}
                     />
                 ))}
             </tbody>
