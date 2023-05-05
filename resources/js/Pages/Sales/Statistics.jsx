@@ -7,6 +7,7 @@ import ProductsListingTable from "@/Components/ProductsListingTable";
 import DonutChart from "@/Components/DonutChart";
 import CustomerActivityGraph from "@/Components/CustomerActivityGraph";
 import ProductDetailModal from "@/Components/ProductDetailModal";
+import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 const cards = [
     {
@@ -109,7 +110,7 @@ function Statistics() {
     }, [fetchData]);
 
     return (
-        <DashboardLayout>
+        <DashboardLayout nav_icons={navlinks}>
             <ProductDetailModal
                 product={modalProduct}
                 closeCallback={() => setModalState(false)}

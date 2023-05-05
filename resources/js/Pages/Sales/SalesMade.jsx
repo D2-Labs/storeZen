@@ -4,11 +4,10 @@ import DashboardLayout from '@/Layouts/DashboardLayout'
 import DateTimeSearch from '@/Components/DateTimeSearch'
 
 import SalesMadeCard from '@/Components/SalesMadeCard'
-import ModalBox from '@/Components/ModalBox'
 import IconButton from '@/Components/IconButton'
-import Clickable from '@/Components/Clickable'
-import ItemBoughtCard from '@/Components/ItemBoughtCard'
 
+
+import navlinks from '@/CentralInfo/salesNavLinks.js';
 
 
 import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/all'
@@ -20,10 +19,9 @@ for(let i=0; i < 10; i++) {
 
 const SalesMade = () => {
 
-  const [modalState, setModalState] = useState(true);
 
   return (
-    <DashboardLayout>
+    <DashboardLayout nav_icons={navlinks}>
         <div className="search-box sm:flex items-center p-5">
             <input type="checkbox" name="date_search" className='mx-2'/>
             <DateTimeSearch />
@@ -37,7 +35,7 @@ const SalesMade = () => {
 
         </div>
 
-        <div className="pagination-box flex justify-center mt-12" onClick={() => setModalState(true)}>
+        <div className="pagination-box flex justify-center mt-12">
 
             <button className="pagination-left rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
                 <IoChevronBackOutline />
@@ -60,18 +58,6 @@ const SalesMade = () => {
             </button>
 
         </div>
-
-        <ModalBox state={modalState} closeCallback={() => setModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
-
-            <div className="h-[400px] overflow-y-scroll w-full">
-                {dummy_sales_made.map(item => <ItemBoughtCard />)}
-            </div>
-
-            <Clickable className='p-2 bg-blue w-full text-white rounded my-4'>Done</Clickable>
-            
-        </ModalBox>
-
-
         
     </DashboardLayout>
   )

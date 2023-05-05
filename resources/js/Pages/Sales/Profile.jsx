@@ -2,13 +2,15 @@ import React           from 'react'
 import {useState}      from 'react'
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import Clickable       from '@/Components/Clickable'
+import navlinks from '@/CentralInfo/salesNavLinks.js';
+
 
 const Profile = () => {
 
     const [optionValue, setOptionValue] = useState('goods');
 
   return (
-    <DashboardLayout>
+    <DashboardLayout nav_icons={navlinks}>
         <div className="info-box mb-5 sm:mb-10 p-6 text-center relative">
             <div className="relative z-10">
                 <div className="profile-image h-[140px] w-[140px] sm:h-[240px] sm:w-[240px] rounded-full shadow bg-blue flex items-center justify-center text-4xl sm:text-8xl font-bold text-white mx-auto my-0">
@@ -43,8 +45,8 @@ const Profile = () => {
                     <h2 className='text-base sm:text-xl font-bold'>65606 <span className='text-sm font-light'>Ghc</span></h2>
 
                     <select className='rounded text-xs sm:text-base' name="opitions" onChange={(event) => setOptionValue(event.target.value)}>
-                        <option value="tasks">Task Assigned</option>
                         <option value="goods">Goods Assigned</option>
+                        <option value="tasks">Task Assigned</option>
                     </select>
                 </div>
 

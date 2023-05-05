@@ -16,29 +16,23 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Sales/Dashboard');
-});
 
-Route::get('/sales', function () {
-    return Inertia::render('Sales/Dashboard');
-});
 
 Route::get('/sales/sales-made', function () {
     return Inertia::render('Sales/SalesMade');
-});
+})->name('sales-made');
 
 Route::get('/sales/sales-stats', function () {
     return Inertia::render('Sales/Statistics');
-});
+})->name('sales-statistics');
 
-Route::get('/sales/products-listing', function () {
+Route::get('/sales', function () {
     return Inertia::render('Sales/ProductsListing');
-});
+})->name('sales-dashboard');
 
 Route::get('/sales/profile', function () {
     return Inertia::render('Sales/Profile');
-});
+})->name('sales-profile');
 
 
 Route::get('/dashboard', function () {

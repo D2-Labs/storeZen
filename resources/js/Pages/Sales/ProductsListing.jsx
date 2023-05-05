@@ -5,10 +5,22 @@ import Clickable from "@/Components/Clickable";
 import ProductsListingTable from "@/Components/ProductsListingTable";
 import ProductDetailModal from "@/Components/ProductDetailModal";
 
+import ModalBox from '@/Components/ModalBox'
+import IconButton from '@/Components/IconButton'
+import ItemBoughtCard from '@/Components/ItemBoughtCard'
+
+import navlinks from '@/CentralInfo/salesNavLinks.js';
+
+let dummy_sales_made = [];
+for(let i=0; i < 10; i++) {
+    dummy_sales_made.push(`item_${i}`);
+}
+
 function ProductListings() {
     const [products, setProductsData] = useState(null);
     const [product, setProduct] = useState({});
     const [modalState, setModalState] = useState(false);
+    const [submitModalState, setSubmitModalState] = useState(false);
 
     const fetchData = useCallback(async () => {
         try {
@@ -24,13 +36,17 @@ function ProductListings() {
         fetchData();
     }, [fetchData]);
 
+
+
     return (
-        <DashboardLayout>
+        <DashboardLayout nav_icons={navlinks} >
+
             <ProductDetailModal
                 closeCallback={() => setModalState(false)}
                 product={product}
                 state={modalState}
             />
+
             <div className="w-full h-max  flex flex-col overflow-auto px-5 pb-5">
                 <h2 className="text-[1.5rem] font-bold capitalize mx-5 my-5">
                     Products
@@ -40,7 +56,7 @@ function ProductListings() {
                     <div className="w-full py-2 px-3 flex flex-col md:flex-row items-center justify-between">
                         {/* section search bar */}
                         <SearchInput />
-                        <Clickable className="bg-blue-600 px-3 py-2 text-white self-end mt-3 md:mt-0">
+                        <Clickable className="bg-blue-600 px-3 py-2 text-white self-end mt-3 md:mt-0" handleClick={() => setSubmitModalState(true)}>
                             Submit
                         </Clickable>
                     </div>
@@ -55,6 +71,16 @@ function ProductListings() {
                     </div>
                 </section>
             </div>
+
+            <ModalBox state={submitModalState} closeCallback={() => setSubmitModalState(false)} classname='p-4 bg-light-blue w-[90vw] sm:w-[500px] h-[490px]'>
+
+                <div className="h-[400px] overflow-y-scroll w-full">
+                    {dummy_sales_made.map(item => <ItemBoughtCard />)}
+                </div>
+
+                <Clickable className='p-2 bg-blue w-full text-white rounded my-4'>Done</Clickable>
+                
+            </ModalBox>
         </DashboardLayout>
     );
 }
