@@ -7,7 +7,7 @@ import ProductsListingTable from "@/Components/ProductsListingTable";
 import DonutChart from "@/Components/DonutChart";
 import CustomerActivityGraph from "@/Components/CustomerActivityGraph";
 import ProductDetailModal from "@/Components/ProductDetailModal";
-import navlinks from '@/CentralInfo/salesNavLinks.js';
+import navlinks from "@/CentralInfo/salesNavLinks.js";
 
 const cards = [
     {
@@ -140,15 +140,17 @@ function Statistics() {
                     {/* flex flex-col md:flex-row items-center justify-center w-full
                     text-gray-600 border-slate-200 shadow-sm shadow-slate-400
                     rounded-md bg-white px-5 py-5 */}
-                    <div className="mb-5 md:mb-0 w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5">
+                    <div className="mb-5 md:mb-0 w-full flex flex-col items-start justify-center border  border-slate-200 shadow-sm shadow-slate-400 rounded-md bg-white px-5 pb-5 max-h-[40rem] overflow-hidden">
                         <h1 className="text-[1.5rem] font-bold my-5  px-3 py-2">
                             Top Selling Products
                         </h1>
-                        <ProductsListingTable
-                            products={products?.slice(0, 5)}
-                            hasCheckedBox={false}
-                            showModal={showModal}
-                        />
+                        <div className="overflow-auto scrollbar-thin h-full scrollbar-track-transparent scrollbar-thumb-slate-200 w-full ">
+                            <ProductsListingTable
+                                products={products}
+                                hasCheckedBox={false}
+                                showModal={showModal}
+                            />
+                        </div>
                     </div>
                     {/* <DemoGraph /> */}
                     <CustomerActivityGraph barData={customerActivityData} />
