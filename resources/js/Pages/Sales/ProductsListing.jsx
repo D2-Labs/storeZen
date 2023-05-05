@@ -39,6 +39,13 @@ function ProductListings() {
 
     return (
         <DashboardLayout nav_icons={navlinks} >
+
+            <ProductDetailModal
+                closeCallback={() => setModalState(false)}
+                product={product}
+                state={modalState}
+            />
+
             <div className="w-full h-max  flex flex-col overflow-auto px-5 pb-5">
                 <h2 className="text-[1.5rem] font-bold capitalize mx-5 my-5">
                     Products
