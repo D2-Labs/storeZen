@@ -51,7 +51,10 @@ function SalesDetail() {
                         </Clickable>
                     </div>
                     <div className="w-full md:px-3 py-2 flex flex-col items-center justify-start md:mt-3">
-                        <ProductsListingTable products={productsData} />
+                        <ProductsListingTable
+                            products={productsData}
+                            editable={true}
+                        />
                     </div>
                 </div>
             </div>

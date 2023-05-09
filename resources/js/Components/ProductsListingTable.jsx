@@ -6,6 +6,7 @@ function ProductsListingTable({
     products,
     hasCheckedBox = true,
     hasStatus = true,
+    editable = false,
 }) {
     const [product, setProduct] = useState({});
     const [modalState, setModalState] = useState(false);
@@ -16,6 +17,7 @@ function ProductsListingTable({
                 closeCallback={() => setModalState(false)}
                 product={product}
                 state={modalState}
+                editable={editable}
             />
             <table className=" lg:mx-0 w-[100%] select-none cursor-pointer">
                 <thead>
