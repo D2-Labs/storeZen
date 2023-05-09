@@ -43,6 +43,12 @@ Route::get('/sales/notifications', function () {
 })->name('sales-notifications');
 
 
+
+Route::get('/keeper/sales-persons', function () {
+    return Inertia::render('Keeper/SalesPersons');
+})->name('sales-persons');
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -44,3 +44,18 @@
     width: max-content !important;
 }
 
+
+@media only screen and (max-width: 600px) {
+    .unique-salespersons-top {
+        display: block !important;
+    }
+
+    .unique-salespersons-top > * {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .unique-salespersons-top input {
+        width: 100%;
+    }
+}

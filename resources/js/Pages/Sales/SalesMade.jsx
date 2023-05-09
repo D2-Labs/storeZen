@@ -4,9 +4,8 @@ import SalesLayout from "@/Layouts/SalesLayout";
 import DateTimeSearch from "@/Components/DateTimeSearch";
 
 import SalesMadeCard from "@/Components/SalesMadeCard";
-import IconButton from "@/Components/IconButton";
+import Pagination from "@/Components/Pagination";
 
-import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/all";
 
 let dummy_sales_made = [];
 for (let i = 0; i < 10; i++) {
@@ -30,27 +29,7 @@ const SalesMade = () => {
                 ))}
             </div>
 
-            <div className="pagination-box flex justify-center mt-12">
-                <button className="pagination-left rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    <IoChevronBackOutline />
-                </button>
-
-                <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    1
-                </button>
-
-                <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    2
-                </button>
-
-                <button className="pagination-item rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    3
-                </button>
-
-                <button className="pagination-right rounded w-[30px] h-[30px] flex items-center justify-center bg-white shadow mx-2">
-                    <IoChevronForwardOutline />
-                </button>
-            </div>
+            <Pagination/>
         </SalesLayout>
     );
 };

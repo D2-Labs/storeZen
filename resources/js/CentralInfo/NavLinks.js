@@ -1,6 +1,6 @@
 import { IoMdNotificationsOutline, TfiLayoutGrid2, AiOutlineShoppingCart, IoPricetagsOutline, IoPeopleOutline} from 'react-icons/all';
 
-const navlinks = [
+export const salesLinks = [
     {
         'name': 'Dashboard',
         'icon': TfiLayoutGrid2,
@@ -24,6 +24,13 @@ const navlinks = [
         'icon': IoPeopleOutline,
         'link': '/sales/profile',
     }
+];
+
+export const keeperLinks = [
+    {
+        'name': 'Users',
+        'icon': IoPeopleOutline,
+        'link': '/keeper/sales-persons',
+    }
 ]
 
-export default navlinks;
