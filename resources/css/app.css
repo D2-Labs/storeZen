@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-blue {
+    background: #6f6cff;
+}
+
+.blue {
+    color: #6f6cff;
+}
+
+.bg-light-green {
+    background: lightgreen;
+}
+.bg-light-blue{
+    background: #f6f6ff;
+}
+
+.iconbutton:hover::before {
+    background: white;
+    border-radius: 5px;
+    content: var(--name);
+    font-size: 50%;
+    position: absolute;
+    padding: 0 .5rem;
+
+    top: 0;
+    left: 105%;
+    width: max-content;
+    white-space: nowrap;
+
+}
+
+.custom-grid-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    transform: scale(.95);
+}
+
+.react-datepicker-wrapper {
+    width: max-content !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .unique-salespersons-top {
+        display: block !important;
+    }
+
+    .unique-salespersons-top > * {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .unique-salespersons-top input {
+        width: 100%;
+    }
+}

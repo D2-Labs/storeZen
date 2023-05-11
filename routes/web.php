@@ -16,13 +16,55 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Sales/Dashboard');
-});
+
+
+Route::get('/sales/sales-made', function () {
+    return Inertia::render('Sales/SalesMade');
+})->name('sales-made');
+
+Route::get('/sales/sales-made/{sale}', function () {
+    return Inertia::render('Sales/SalesDetail');
+})->name('sales-made');
+
+Route::get('/sales/sales-stats', function () {
+    return Inertia::render('Sales/Statistics');
+})->name('sales-statistics');
 
 Route::get('/sales', function () {
-    return Inertia::render('Sales/Dashboard');
-});
+    return Inertia::render('Sales/ProductsListing');
+})->name('sales-dashboard');
+
+Route::get('/sales/profile', function () {
+    return Inertia::render('Sales/Profile');
+})->name('sales-profile');
+
+Route::get('/sales/notifications', function () {
+    return Inertia::render('Sales/Notifications');
+})->name('sales-notifications');
+
+
+
+Route::get('/keeper/sales-persons', function () {
+    return Inertia::render('Keeper/SalesPersons');
+})->name('book-keeper-all-sales');
+
+
+Route::get('/keeper/product-listings', function () {
+    return Inertia::render('Keeper/ProductsListings');
+})->name('book-keeper-product-listing');
+
+Route::get('/keeper/goods-receiving-form', function () {
+    return Inertia::render('Keeper/ReceivingForms');
+})->name('book-keeper-goods-receiving');
+
+Route::get('/keeper/goods-order-form', function () {
+    return Inertia::render('Keeper/OrdersForm');
+})->name('book-keeper-goods-order');
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -34,4 +76,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
