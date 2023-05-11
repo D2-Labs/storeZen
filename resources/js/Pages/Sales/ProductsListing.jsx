@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
-import SearchInput from "@/Components/SearchInput";
+import { useCallback, useState } from "react";
 import SalesLayout from "@/Layouts/SalesLayout";
-import Clickable from "@/Components/Clickable";
-import ProductsListingTable from "@/Components/ProductsListingTable";
 import SubmitModal from "@/Components/SubmitModal";
+import Products from "@/Components/Products";
 
 let dummy_sales_made = [];
 for (let i = 0; i < 10; i++) {
@@ -24,34 +22,14 @@ function ProductListings() {
         }
     }, []);
 
-    useEffect(() => {
-        fetchData();
-    }, [fetchData]);
+    fetchData();
 
     return (
         <SalesLayout>
-            <div className="w-full h-max  flex flex-col overflow-auto px-5 pb-5">
-                <h2 className="text-[1.5rem] font-bold capitalize mx-5 my-5">
-                    Products
-                </h2>
-                <section className="flex flex-col items-start justify-start bg-white w-full h-max py-4 md:px-3">
-                    {/* section header */}
-                    <div className="w-full py-2 px-3 flex flex-col md:flex-row items-center justify-between">
-                        {/* section search bar */}
-                        <SearchInput />
-                        <Clickable
-                            className="bg-blue-600 px-3 py-2 text-white self-end mt-3 md:mt-0"
-                            handleClick={() => setSubmitModalState(true)}
-                        >
-                            Submit
-                        </Clickable>
-                    </div>
-                    <div className="w-full md:px-3 py-2 flex flex-col items-center justify-start md:mt-3 ">
-                        <ProductsListingTable products={products} />
-                    </div>
-                </section>
-            </div>
-
+            <Products
+                products={products}
+                submitCallBack={() => setSubmitModalState(true)}
+            />
             <SubmitModal
                 data={dummy_sales_made}
                 handleSubmitState={() => setSubmitModalState(false)}

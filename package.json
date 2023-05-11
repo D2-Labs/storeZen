@@ -26,6 +26,7 @@
         "chart.js": "^4.3.0",
         "react-chartjs-2": "^5.2.0",
         "react-datepicker": "^4.11.0",
-        "react-icons": "^4.8.0"
+        "react-icons": "^4.8.0",
+        "uuid": "^9.0.0"
     }
 }

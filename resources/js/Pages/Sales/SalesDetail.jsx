@@ -1,5 +1,4 @@
 import ProductsListingTable from "@/Components/ProductsListingTable";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { useCallback, useState, useEffect } from "react";
 import SearchInput from "@/Components/SearchInput";
 import Clickable from "@/Components/Clickable";

@@ -46,7 +46,24 @@ Route::get('/sales/notifications', function () {
 
 Route::get('/keeper/sales-persons', function () {
     return Inertia::render('Keeper/SalesPersons');
-})->name('sales-persons');
+})->name('book-keeper-all-sales');
+
+
+Route::get('/keeper/product-listings', function () {
+    return Inertia::render('Keeper/ProductsListings');
+})->name('book-keeper-product-listing');
+
+Route::get('/keeper/goods-receiving-form', function () {
+    return Inertia::render('Keeper/ReceivingForms');
+})->name('book-keeper-goods-receiving');
+
+Route::get('/keeper/goods-order-form', function () {
+    return Inertia::render('Keeper/OrdersForm');
+})->name('book-keeper-goods-order');
+
+
+
+
 
 
 Route::get('/dashboard', function () {

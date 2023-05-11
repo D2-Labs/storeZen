@@ -1,6 +1,5 @@
 import ModalBox from "@/Components/ModalBox";
-import { BiDollar, AiOutlineLine, BiPlus } from "react-icons/all";
-import SearchInput from "./SearchInput";
+import { BiDollar, AiOutlineLine } from "react-icons/all";
 import UpdateSales from "./UpdateSales";
 import ReplaceSalesForm from "./ReplaceSalesForm";
 import { useState } from "react";
